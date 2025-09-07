@@ -44,7 +44,6 @@
 
 # Application-layer DDoS에 대응 가능한 탐지 로직 강화
 
----
 
 
 ### WAF (애플리케이션 계층 DDoS 공격) 탐지 로직 강화
@@ -87,7 +86,7 @@
 
 # 최신 트렌드 DDoS 공격
 
----
+
 
 
 ### 1️⃣ 하이퍼 볼류메트릭 공격 (Hyper-Volumetric DDoS Attack)
