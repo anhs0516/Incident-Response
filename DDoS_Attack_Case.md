@@ -21,7 +21,8 @@
 
 - Arcsight간 DDoS 이벤트 다수 발생 확인
 - DDoS 모니터링간 트래픽 유입량 bps가 평균치를 넘기려고 할 때 ex) 1Gbps
-  단순 유입량(bps)외에도 다양한 지표 추가 확인 
+  단순 유입량(bps)외에도 다양한 지표 추가 확인
+  ㄴ PPS (Packet Per Second) , CPS (Connection Per Second)
 - Splunk 로그 조회
    index=sec_ddos | stats count by src_ip
 
