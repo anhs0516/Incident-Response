@@ -22,9 +22,12 @@
 - Arcsight간 DDoS 이벤트 다수 발생 확인
 - DDoS 모니터링간 트래픽 유입량 bps가 평균치를 넘기려고 할 때 ex) 1Gbps
   단순 유입량(bps)외에도 다양한 지표 추가 확인
-  ㄴ PPS (Packet Per Second) , CPS (Connection Per Second)
+  * 초당 패킷 수 PPS (Packet Per Second) , 초당 연결 수 CPS (Connection Per Second)
+  * 특정 포트/프로토콜 트래픽 비율 (예: 443 대비 80 비정상 증가)
+  * GeoIP 기반 해외 특정 지역에서 발생하는 대량 유입 확인
+  * 정상 대비 요청 패턴 (ex. URI 길이, User-Agent 값 비정상)
 - Splunk 로그 조회
-   index=sec_ddos | stats count by src_ip
+   index=sec_ddos | stats count by src_ip, uri, user_agent
 
 
 ### 대응 조치 
@@ -32,6 +35,7 @@
 - DDoS 모니터링간 평균적인 트래픽 유입량을 초과할 때, PM, PL, 담당자에게 보고
 - 금융보안원 우회 요청
 - DDoS 정책 대응 ex) 탐지 -> 방어
+  ㄴ 공격 유형 분류하여 
 - 대응 후 블랙리스트 공유 및 대응 보고서 작성 후 담당자에게 전달 (2시간 이내)
 
 
