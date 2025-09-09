@@ -19,15 +19,49 @@
 
 ### 탐지 및 분석
 
-- Arcsight간 DDoS 이벤트 다수 발생 확인
-- DDoS 모니터링간 트래픽 유입량 bps가 평균치를 넘기려고 할 때 ex) 1Gbps
-  단순 유입량(bps)외에도 다양한 지표 추가 확인
-  * 초당 패킷 수 PPS (Packet Per Second) , 초당 연결 수 CPS (Connection Per Second)
-  * 특정 포트/프로토콜 트래픽 비율 (예: 443 대비 80 비정상 증가)
-  * GeoIP 기반 해외 특정 지역에서 발생하는 대량 유입 확인
-  * 정상 대비 요청 패턴 (ex. URI 길이, User-Agent 값 비정상)
-- Splunk 로그 조회
-   index=sec_ddos | stats count by src_ip, uri, user_agent
+#### 1. 실시간 모니터링 지표
+
+* **트래픽 양 기반**: BPS(Byte per Second), PPS(Packet per Second), CPS(Connection per Second) 급상승 여부 확인
+* **비율 기반**: 특정 포트·프로토콜(예: 80, 443) 비정상 증가
+* **GeoIP 분석**: 특정 해외 지역 집중 발생 여부
+* **Baseline 비교**: 금융 서비스의 정상 트래픽 평균값 대비 150% 이상 증가 시 탐지 이벤트 발생
+
+#### 2. 이벤트 상관분석
+
+단일 지표가 아닌 복합 조건 기반 탐지를 수행합니다.
+
+* PPS 급증 + 동일 URI 반복 요청 + 동일 User-Agent 값 → **애플리케이션 계층 DDoS 의심**
+* 특정 국가 집중 트래픽 + 비정상 포트 사용 → **봇넷 기반 대역폭 공격 가능성**
+* SYN/ACK 비율 불균형 → **Protocol 레벨 세션 고갈 공격 의심**
+
+#### 3. 심층 행위 분석
+
+정상 사용자와 공격 요청을 구분하기 위해 세션 단위 분석을 수행합니다.
+
+* **세션 다변성 부족**: 정상 사용자는 다양한 URI 접근, 공격자는 단일 API 반복 요청
+* **요청 속도·빈도**: 동일 IP에서 일정한 주기로 초당 수백 건 이상 발생 시 봇 의심
+* **HTTP 헤더 패턴**: User-Agent, Referer 값이 누락되거나 비정상적일 경우 공격 트래픽 판단
+
+#### 4. Splunk 탐지 쿼리
+
+```
+index=sec_ddos
+| stats count, dc(uri) as uri_cnt , values(user_agent) as user_agent by src_ip
+| where count > 100 AND uri_cnt < 3
+
+--> 100건 이상 요청하면서 3개 미만 URI만 호출하는 IP = 자동화 툴 공격 의심
+
+```
+
+```
+index=sec_ddos
+| bucket _time span=1m
+| stats count by _time, src_ip
+| where count > 1000
+
+--> 1분 내 1000회 이상 요청 발생하는 공격 IP 탐지
+```
+
 
 
 ### 대응 조치 
