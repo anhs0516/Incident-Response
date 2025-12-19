@@ -35,6 +35,10 @@
 
 ### ㅁ IoC 정보
 
+206[.]237.3.150, 2025-12-04, Earth Lamia
+45[.]77.33.136, 2025-12-04, Jackpot Panda
+143[.]198.92.82, 2025-12-04, Anonymization Network
+183[.]6.80.214, 2025-12-04, 출처 불명 위협 클러스터
 
 ### ㅁ 대응방안
 
@@ -46,3 +50,13 @@
 - 자산 확인 후 영향도 확인
 
 - 제로데이 이전 로그들 확인
+
+
+##### 출처
+
+
+[NVD]
+https://nvd.nist.gov/vuln/detail/CVE-2025-55182
+
+[IoC]
+https://aws.amazon.com/ko/blogs/security/china-nexus-cyber-threat-groups-rapidly-exploit-react2shell-vulnerability-cve-2025-55182/
