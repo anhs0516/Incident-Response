@@ -43,21 +43,9 @@ React
     <th>취약한 버전</th>
     <th>패치 버전</th>
   </tr>
-  <tr>
     <td rowspan="3">react-server-dom-parcel<br>react-server-dom-turbopack<br>react-server-dom-webpack</td>
-     <td></td>
-     <td></td>
-  </tr>
-  <tr>
     <td rowspan="3">19.0.0, 19.1.x, 19.2.0</td>
-    <td></td>
-    <td></td>
-  </tr>
-   <tr>
     <td rowspan="3">19.0.1, 19.1.2,19.2.1</td>
-    <td></td>
-    <td></td>
-  </tr>
 </table>
 
 
