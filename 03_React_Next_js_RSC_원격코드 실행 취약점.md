@@ -28,7 +28,12 @@
 
 ### ㅁ 조치권고
 
-- 자산확인
+내부 자산 내 React, Next.js 기반 서비스 조사
+- 
+- React 및 react-server-dom-\*패키지 사용 여부 및 버전 정보 확인
+- Next.sj 사용여부 및 버전 정보 확인
+- Next.js 라우팅 구조 점검 (App router/Page router 사용여부)
+
 
 
 |대상| 취약한 버전 | 패치 버전|
