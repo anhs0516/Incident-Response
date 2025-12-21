@@ -10,7 +10,7 @@
 
 
 ### ㅁ CVE-2025-55182 (React), CVE-2025-66478 (Next.js)
--
+
 ㅇ 발생 원리 
 
 - 이 취약점은 React 19의 핵심 기능인 **React Server Components (RSC)**가 클라이언트와 서버간에 데이터를 주고 받기 위해 사용하는 **Flight 프로토콜**의 처리 과정에서 발생
@@ -34,11 +34,40 @@
 - Next.sj 사용여부 및 버전 정보 확인
 - Next.js 라우팅 구조 점검 (App router/Page router 사용여부)
 
+React
+-
 
+<table>
+  <tr>
+    <th>영향을 받는 패키지</th>
+    <th>취약한 버전</th>
+    <th>패치 버전</th>
+  </tr>
+  <tr>
+    <td rowspan="3">react-server-dom-parcel<br>react-server-dom-turbopack<br>react-server-dom-webpack</td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td rowspan="3">19.0.0, 19.1.x, 19.2.0</td>
+    <td></td>
+    <td></td>
+  </tr>
+   <tr>
+    <td rowspan="3">19.0.1, 19.1.2,19.2.1</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+
+|영향을 받는 패키지| 취약한 버전| 패치 버전|
+|----------------|------------|-----------|
+|react-server-dom-parcel,react-server-dom-turbopack,react-server-dom-webpack|19.0.0, 19.1.x, 19.2.0| 19.0.1, 19.1.2,19.2.1|
 
 |대상| 취약한 버전 | 패치 버전|
 |-----|----------|-------------|
-|React|React 19(19.0.0, 19.1.x, 19.2.0)| React 19.2.1 이상|
+
 |Next.js|15.x/16.x | 15.0.5, 15.1.9, 15.2.6, 15.3.6, 15.4.8, 15.5.7, 16.0.7 등 업그레이드|
 |Next.js|14.3.0-canary.77이후 | 최신 14.x 안정 버전으로 전환|
 
