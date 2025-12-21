@@ -10,7 +10,7 @@
 
 
 ### ㅁ CVE-2025-55182 (React), CVE-2025-66478 (Next.js)
-
+-
 ㅇ 발생 원리 
 
 - 이 취약점은 React 19의 핵심 기능인 **React Server Components (RSC)**가 클라이언트와 서버간에 데이터를 주고 받기 위해 사용하는 **Flight 프로토콜**의 처리 과정에서 발생
