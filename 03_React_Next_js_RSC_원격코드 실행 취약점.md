@@ -76,7 +76,6 @@ https://github.com/assetnote/react2shell-scanner
 
    ```
       pip install -r requirements.txt
-
    ```
 
 
