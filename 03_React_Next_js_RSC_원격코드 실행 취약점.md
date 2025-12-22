@@ -72,6 +72,12 @@ Next.js
 
 https://github.com/assetnote/react2shell-scanner
 
+2. 명령어를 통해 requirements.txt 파일에 정의된 모든 python 패키지를 한 번에 설치한다.
+
+   ```
+      pip install -r requirements.txt
+
+   ```
 
 
 
