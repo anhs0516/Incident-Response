@@ -65,6 +65,14 @@ Next.js
 
 ### ㅁ 취약점 스캐너
 
+스캐너를 활용한 점검 방법 안내
+
+1. Github에서 취약점 스캐너 다운로드
+
+
+https://github.com/assetnote/react2shell-scanner
+
+
 
 
 ### ㅁ IoC 정보
