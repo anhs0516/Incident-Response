@@ -77,7 +77,12 @@ https://github.com/assetnote/react2shell-scanner
    ```
       pip install -r requirements.txt
    ```
+   
+3. 스캐너 실행
 
+   ```
+   python3 scanner.py -u https://example.com
+   ```
 
 
 ### ㅁ IoC 정보
