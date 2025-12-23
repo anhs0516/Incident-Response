@@ -81,7 +81,7 @@ https://github.com/assetnote/react2shell-scanner
 3. 스캐너 실행
 
    ```
-   python3 scanner.py -u https://example.com
+      python3 scanner.py -u https://example.com
    ```
 
 
