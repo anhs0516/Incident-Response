@@ -100,11 +100,10 @@ https://github.com/assetnote/react2shell-scanner
 
 - IPS 차단 적용 완료
 
-- 룰 설명
 
 - 자산 확인 후 영향도 확인
 
-- 제로데이 이전 로그들 확인
+- Zero day 이전 로그 확인 
 
 
 ##### 출처
