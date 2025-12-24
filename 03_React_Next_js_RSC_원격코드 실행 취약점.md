@@ -98,12 +98,23 @@ https://github.com/assetnote/react2shell-scanner
 ### ㅁ 대응방안
 
 
-- IPS 차단 적용 완료
-
-
-- 자산 확인 후 영향도 확인
+- React, Next.js 사용 자산 확인 후 영향도 확인
 
 - Zero day 이전 로그 확인 
+
+- IPS 차단 적용 완료
+```
+예시) alert tcp any any &rightarrow; any any (mgs:"React_Deserialization_RCE_Vul_A"; content:"POST"; http_method; content:"multipart|2F|from-data"; nocase; content:"$@"; http_client_body; fast_pattern; pcre:"/(proto|constructor)/Ri")
+
+alert tcp any any &rightarrow; any any (mgs:"React_Deserialization_RCE_Vul_B"; content:"next-action"; nocase; http_header;)
+
+alert tcp any any &rightarrow; any any (mgs:"React_Deserialization_RCE_Vul_C"; content:"POST"; nocase; offset:0; depth:4; content:"('child_process').exec"; nocase;)
+
+
+alert tcp any any &rightarrow; any any (mgs:"React_Deserialization_RCE_Vul_D"; content:"POST"; nocase; content:"__proto__:then"; nocase;)
+```
+
+
 
 
 ##### 출처
