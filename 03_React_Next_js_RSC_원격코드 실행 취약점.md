@@ -125,3 +125,6 @@ https://nvd.nist.gov/vuln/detail/CVE-2025-55182
 
 [IoC]
 https://aws.amazon.com/ko/blogs/security/china-nexus-cyber-threat-groups-rapidly-exploit-react2shell-vulnerability-cve-2025-55182/
+
+[Github 취약점 스캐너]
+https://github.com/assetnote/react2shell-scanner
